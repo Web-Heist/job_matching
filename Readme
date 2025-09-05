@@ -28,8 +28,8 @@ This project enables intelligent matching of resumes to job postings using both 
 
 ---
 ## 📁 Folder Structure
-
 ```
+
 backend/
 │   ├── main.py            # FastAPI app entry
 │   ├── models.py          # SQLAlchemy models
@@ -41,8 +41,8 @@ frontend/
     ├── style.css
     ├── script.js
 
-```
 
+```
 ## 🔧 How It Works
 
 ### 1. Upload Job Posts
@@ -75,16 +75,14 @@ cd job_matching/backend
 ### ▶️ Run the App
 
 ```bash
-uvicorn app.main:app --reload
-```
 
+uvicorn app.main:app --reload
 Open your browser at:
 👉 [http://localhost:8000/docs](http://localhost:8000/docs)
 
----
 
+```
 ## 🔐 Environment Variables
-
 
 GEMINI_API_KEY=your_google_gemini_api_key
 
@@ -107,5 +105,6 @@ Ensure you have:
 [Gemini] Job: Robotics Engineer, Gemini Score: 8.5, Combined Score: 27.3  
 [Gemini] Job: Automation Specialist, Gemini Score: 7.2, Combined Score: 26.1  
 [Gemini] Job: Mechatronics Engineer, Gemini Score: 6.9, Combined Score: 24.8  
+
 
 
