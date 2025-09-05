@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Matcher</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    form textarea, form input[type="file"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      font-size: 0.95rem;
+    }
+
+    button {
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #4338ca, #7e22ce);
+      transform: scale(1.03);
+    }
+
+    #results, #clear-response {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #f3f4f6;
+      min-height: 50px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Job Matcher App</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Post a Job</h2>
+      <form id="job-form">
+        <textarea name="title" placeholder="Job Title" required></textarea>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <textarea name="skills" placeholder="Skills" required></textarea>
+        <textarea name="location" placeholder="Location"></textarea>
+        <textarea name="education_requirements" placeholder="Education Requirements"></textarea>
+        <textarea name="eligibility_criteria" placeholder="Eligibility Criteria"></textarea>
+        <button type="submit">Post Job</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Upload Your Resume</h2>
+      <form id="resume-form" enctype="multipart/form-data">
+        <textarea name="name" placeholder="Your Name" required></textarea>
+        <textarea name="skills" placeholder="Skills" required></textarea>
+        <textarea name="education" placeholder="Education" required></textarea>
+        <textarea name="experience" placeholder="Experience" required></textarea>
+        <input type="file" name="file" accept=".pdf,.doc,.docx" required>
+        <button type="submit">Upload Resume</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Actions</h2>
+      <div class="actions">
+        <button onclick="clearJobs()">Clear All Jobs</button>
+        <button onclick="clearResumes()">Clear All Resumes</button>
+        <button onclick="loadMatches()">Match Jobs</button>
+      </div>
+      <div id="clear-response"></div>
+    </div>
+
+    <div class="card">
+      <h2>Results</h2>
+      <div id="results"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
